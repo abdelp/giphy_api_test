@@ -1,0 +1,30 @@
+{
+  "name": "giphy_api_test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdelp/giphy_api_test.git"
+  },
+  "author": "Abdel Pérez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abdelp/giphy_api_test/issues"
+  },
+  "homepage": "https://github.com/abdelp/giphy_api_test#readme",
+  "dependencies": {
+    "lodash": "^4.17.19",
+    "pubsub-js": "^1.8.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "keywords": [],
+  "description": ""
+}
