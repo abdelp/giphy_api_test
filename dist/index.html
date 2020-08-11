@@ -8,16 +8,19 @@
 </head>
 <body>
   <div class="card">
-    <div class="header">
+    <div class="card-header">
       <img id="gif-img" src="#" alt="">
     </div>
-    <div class="body">
-      <form action="">
-        <input type="text">
-        <button class="my-button"></button>
+    <div class="card-body">
+      <form id="search-form" action="">
+        <div class="form-group">
+          <input id="word" type="text" class="input-style-4" required>
+        </div>
+        <div class="form-group">
+          <button class="my-button" type="button" onclick="setImg()">Search</button>
+        </div>
       </form>
     </div>
   </div>
-
 </body>
 </html>

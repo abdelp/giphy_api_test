@@ -5,7 +5,7 @@ import timeoutPromise from './modules/promeses.js';
 import setImgSrc from './modules/doman.js';
 import './assets/styles/styles.css';
 
-const getGIF = async (word) => {
+const getGif = async (word) => {
   const api = API.getAPIKey();
   const url = `https://api.giphy.com/v1/gifs/translate?api_key=${api}&s=${word}`;
   let result;
@@ -22,15 +22,22 @@ const getGIF = async (word) => {
   return result.json();
 };
 
-getGIF('cat')
-.then(result => {
-  const gifURL = result.data.images.original.url;
-  PubSub.publish('GIF downloaded', gifURL);
-})
-.catch(error => console.error(error));
+window.setImg = async () => {
+  const word = document.getElementById('word').value;
+  let result;
 
-const showImg = (notice, url) => {
-  setImgSrc('gif-img', url);
-};
+  try {
+    result = await getGif(word);
+    const gifURL = result.data.images.original.url;
+    setImgSrc('gif-img', gifURL);
+  }
+  catch(error) {
+    console.error(error)
+  }
+}
 
-PubSub.subscribe('GIF downloaded', showImg);
+// const showImg = (notice, url) => {
+//   setImgSrc('gif-img', url);
+// };
+
+// PubSub.subscribe('GIF downloaded', showImg);
