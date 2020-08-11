@@ -1,27 +1,9 @@
 import PubSub from 'pubsub-js';
 import * as API from './api.js';
-
-const img = document.querySelector('img');
-
-const timeoutPromise = (delay) => {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			reject("Timeout!");
-		}, delay);
-	});
-};
-
-const fetchURL = async (url) => {
-  let response;
-
-  try {
-    response = await fetch(url, {mode: 'cors'});
-  } catch(error) {
-    response = await error;
-  }
-
-  return response;
-};
+import fetchURL from './modules/fetcher.js';
+import timeoutPromise from './modules/promeses.js';
+import setImgSrc from './modules/doman.js';
+import './assets/styles/styles.css';
 
 const getGIF = async (word) => {
   const api = API.getAPIKey();
@@ -33,17 +15,11 @@ const getGIF = async (word) => {
       fetchURL(url),
       timeoutPromise(3000)
     ]);
-
-    result = await result.json();
   } catch(error) {
     result = await error;
   }
 
-  return result;
-};
-
-const showImg = (notice, url) => {
-  img.src = url;
+  return result.json();
 };
 
 getGIF('cat')
@@ -52,5 +28,9 @@ getGIF('cat')
   PubSub.publish('GIF downloaded', gifURL);
 })
 .catch(error => console.error(error));
+
+const showImg = (notice, url) => {
+  setImgSrc('gif-img', url);
+};
 
 PubSub.subscribe('GIF downloaded', showImg);
