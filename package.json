@@ -25,5 +25,8 @@
     "webpack-cli": "^3.3.12"
   },
   "keywords": [],
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "await-to-js": "^2.1.1"
+  }
 }
