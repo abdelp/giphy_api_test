@@ -1,4 +1,3 @@
-import PubSub from 'pubsub-js';
 import * as API from './api.js';
 import fetchURL from './modules/fetcher.js';
 import timeoutPromise from './modules/promeses.js';
@@ -35,9 +34,3 @@ window.setImg = async () => {
     console.error(error)
   }
 }
-
-// const showImg = (notice, url) => {
-//   setImgSrc('gif-img', url);
-// };
-
-// PubSub.subscribe('GIF downloaded', showImg);

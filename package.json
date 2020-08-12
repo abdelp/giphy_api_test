@@ -17,10 +17,6 @@
     "url": "https://github.com/abdelp/giphy_api_test/issues"
   },
   "homepage": "https://github.com/abdelp/giphy_api_test#readme",
-  "dependencies": {
-    "lodash": "^4.17.19",
-    "pubsub-js": "^1.8.0"
-  },
   "devDependencies": {
     "css-loader": "^4.2.1",
     "file-loader": "^6.0.0",
